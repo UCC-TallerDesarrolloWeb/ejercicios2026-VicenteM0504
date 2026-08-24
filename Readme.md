@@ -16,9 +16,9 @@
 
 ### HTML
 -  [X] Primer HTML
--  [ ] Secciones
--  [ ] Títulos
--  [ ] Listas
+-  [x] Secciones
+-  [X] Títulos
+-  [X] Listas
 -  [ ] Link
 -  [ ] Tablas I
 -  [ ] Tablas II
