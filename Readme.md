@@ -22,8 +22,8 @@
 -  [X] Link
 -  [X] Tablas I
 -  [X] Tablas II
--  [ ] Tablas III
--  [ ] Tablas VI
+-  [X] Tablas III
+-  [X] Tablas VI
 -  [ ] Comentarios
 -  [ ] Formulario
 -  [ ] Accesibilidad
