@@ -14,33 +14,72 @@
         Links de navegacion
     </nav>
     <aside class="item3">
-        Filtros
+        <form name="filter" id="filter">
+        <fieldset>
+
+            <legend>Buscador</legend>
+            <label for="search">Buscar</label>
+            <input type="text" name="search" id="search" placeholder="Buscar..">
+
+        </fieldset>
+        <fieldset>
+            <legend>Precios</legend>
+            <p>
+                <label for="price-min">Minimo</label>
+                <input type="number" name="price-min" id="price-min" min="0">
+            </p>
+            <p>
+                <label for="price-max">Maximo</label>
+                <input type="number" name="price-max" id="price-max" min="0">
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Tipo de productos</legend>
+            <p>
+                <input type="checkbox" name="tipo" id="protectores" value="protectores">
+                <label for="protectores">Protectores</label>
+            </p>
+            <p>
+                <input type="checkbox" name="tipo" id="entrenamiento" value="entrenamiento">
+                <label for="entrenamiento">Entrenamiento</label>
+            </p>
+            <p>
+                <input type="checkbox" name="tipo" id="dobok" value="dobok">
+                <label for="dobok">Dobok</label>
+            </p>
+        </fieldset>
+        </form>
     </aside>
     <main class="item4">
         <div>
-            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/cabezal-cerrado.webp" alt="cabezal-cerrado">
+            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/cabezal-cerrado.webp"
+                alt="cabezal-cerrado">
             <h3>Cabezal cerrado</h3>
         </div>
 
-         <div>
+        <div>
             <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/dobok.webp" alt="dobok">
             <h3>Dobok</h3>
         </div>
         <div>
-        <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/escudo-potencia.webp" alt="escudo-de-potencia">
+            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/escudo-potencia.webp"
+                alt="escudo-de-potencia">
             <h3>Escudo de potencia</h3>
         </div>
         <div>
-        <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/foco-con-dedos.webp" alt="focos-con-dedos">
+            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/foco-con-dedos.webp"
+                alt="focos-con-dedos">
             <h3>Foco con dedos</h3>
         </div>
 
         <div>
-        <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/protectores-mano.webp" alt="protectores-de-mano">
+            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/protectores-mano.webp"
+                alt="protectores-de-mano">
             <h3>Protectores de mano</h3>
         </div>
         <div>
-        <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/protectores-pie.webp" alt="protectores-de-pie">
+            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/protectores-pie.webp"
+                alt="protectores-de-pie">
             <h3>Portectores de pie</h3>
         </div>
 
