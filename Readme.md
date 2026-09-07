@@ -41,7 +41,7 @@
 -  [x] Grid
 -  [x] grid-areas
 -  [x] Mejora
--  [ ] Transitions
+-  [X] Transitions
 -  [ ] Viewport
 -  [ ] Responsive
 
