@@ -7,7 +7,7 @@
     <script type="text/javascript" src="tienda.js"></script>
 </head>
 
-<body class="grid-container">
+<body class="grid-container" onload="mostrarCatalogo()">
     <header class="item1">
         Catalogo de productos
     </header>
@@ -52,44 +52,12 @@
         </fieldset>
         </form>
     </aside>
-    <main class="item4">
-        <dialog id="modal">
+    <dialog id="modal">
             <h2>Cabezal cerrad</h2>
             <p>Cabezal de sparring disponible en color azul o rojo</p>
             <button type="button" onclick="cerrarModal()">Cerrar</button>
         </dialog>
-        <div>
-            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/cabezal-cerrado.webp"
-                alt="cabezal-cerrado">
-            <h3>Cabezal cerrado</h3>
-            <button type="button" onclick="mostrarModal()">Ver detalle de producto</button>
-        </div>
-
-        <div>
-            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/dobok.webp" alt="dobok">
-            <h3>Dobok</h3>
-        </div>
-        <div>
-            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/escudo-potencia.webp"
-                alt="escudo-de-potencia">
-            <h3>Escudo de potencia</h3>
-        </div>
-        <div>
-            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/foco-con-dedos.webp"
-                alt="focos-con-dedos">
-            <h3>Foco con dedos</h3>
-        </div>
-
-        <div>
-            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/protectores-mano.webp"
-                alt="protectores-de-mano">
-            <h3>Protectores de mano</h3>
-        </div>
-        <div>
-            <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/protectores-pie.webp"
-                alt="protectores-de-pie">
-            <h3>Portectores de pie</h3>
-        </div>
+    <main class="item4" id="catalogo">
 
     </main>
 
