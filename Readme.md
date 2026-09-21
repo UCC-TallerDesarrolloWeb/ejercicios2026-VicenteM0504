@@ -47,8 +47,8 @@
 
 ## Unidad 3: JavaScript y ES6+
 
--  [ ] Hola Mundo!
--  [ ] Conversor de Unidades
+-  [x] Hola Mundo!
+-  [x] Conversor de Unidades
 -  [ ] Documentación
 -  [ ] Grados a Radianes
 -  [ ] Refactorización
