@@ -6,44 +6,59 @@
  */
 
 
-function convertirUnidades(id, valor){
-    if(isNaN(valor)){
-        alert("Se ingreso un valor incorrecto: "+id);
-        document.getElementById("pulgada").value = "";
-        document.getElementById("pie").value = "";
-        document.getElementById("yarda").value = "";
-        document.getElementById("metro").value = "";
+convertirUnidades = (id, valor) => {
+
+    let metros, pulgadas, yardas, pie;
+
+    if (isNaN(valor)) {
+        alert("Se ingreso un valor incorrecto: " + id);
+        metros = "";
+        pulgadas = "";
+        pies = "";
+        yardas = "";
     }
 
-    else if (id=="metro") {
-        document.getElementById("pulgada").value = valor*39.3701;
-        document.getElementById("pie").value = valor*3.28084;
-        document.getElementById("yarda").value = valor*1.09;
+    else if (id == "metro") {
+        metros = valor;
+        pulgadas = valor * 39.3701;
+        pie = valor * 3.28084;
+        yardas = valor * 1.09;
     }
 
-    else if(id=="pie"){
-         document.getElementById("metro").value = valor * 0.3048
+    else if (id == "pie") {
+        pies = valor;
 
-        document.getElementById("yarda").value = valor * 0.3333333
+        metros = valor * 0.3048
 
-        document.getElementById("pulgada").value = valor * 12; 
+        yardas = valor * 0.3333333
+
+        pulgadas = valor * 12;
     }
 
-    else if(id=="pulgada"){
-         document.getElementById("metro").value = valor * 0.0254
+    else if (id == "pulgada") {
+        pulgadas = valor;
 
-        document.getElementById("pie").value = valor * 0.08333333
+        metros = valor * 0.0254
 
-        document.getElementById("yarda").value = valor * 0.02777778
+        pie = valor * 0.08333333
+
+        yardas = valor * 0.02777778
     }
 
-    else if(id=="yarda"){
-          document.getElementById("metro").value = valor * 0.9144
+    else if (id == "yarda") {
+        yardas = valor;
 
-        document.getElementById("pulgada").value = valor * 36; 
+        metros = valor * 0.9144
 
-        document.getElementById("pie").value = valor * 3; 
+        pulgadas = valor * 36;
+
+        pie = valor * 3;
     }
+
+    document.getElementById("pulgada").value = pulgadas;
+    document.getElementById("pie").value = pie;
+    document.getElementById("yarda").value = yardas;
+    document.getElementById("metro").value = metros;
 
 }
 
@@ -54,15 +69,15 @@ function convertirUnidades(id, valor){
  */
 
 
-function convertirGR(id){
+function convertirGR(id) {
     let grad, rad;
 
-    if(id=="grados"){
+    if (id == "grados") {
         grad = document.getElementById("grados").value;
-        rad = grad*Math.PI/180;
-    }else{
+        rad = grad * Math.PI / 180;
+    } else {
         rad = document.getElementById("radianes").value;
-        grad = rad*180/Math.PI;
+        grad = rad * 180 / Math.PI;
     }
     document.getElementById("grados").value = grad;
     document.getElementById("radianes").value = rad;
