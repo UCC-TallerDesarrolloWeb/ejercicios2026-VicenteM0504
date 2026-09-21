@@ -46,3 +46,24 @@ function convertirUnidades(id, valor){
     }
 
 }
+
+/**
+ * Conversion de grados a radianes
+ * @method convertirGR de la función
+ * @param {string} id - id del elemento
+ */
+
+
+function convertirGR(id){
+    let grad, rad;
+
+    if(id=="grados"){
+        grad = document.getElementById("grados").value;
+        rad = grad*Math.PI/180;
+    }else{
+        rad = document.getElementById("radianes").value;
+        grad = rad*180/Math.PI;
+    }
+    document.getElementById("grados").value = grad;
+    document.getElementById("radianes").value = rad;
+}
