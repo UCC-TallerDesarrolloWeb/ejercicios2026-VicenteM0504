@@ -64,7 +64,7 @@ convertirUnidades = (id, valor) => {
 
 /**
  * Conversion de grados a radianes
- * @method convertirGR de la función
+ * @method convertirGR 
  * @param {string} id - id del elemento
  */
 
@@ -82,3 +82,29 @@ function convertirGR(id) {
     document.getElementById("grados").value = grad;
     document.getElementById("radianes").value = rad;
 }
+
+/**
+ * ostrar o ocultar div
+ * @method mostrarOcultar 
+ * @param {string} valor - valor del id
+ */
+
+
+mostrarOcultar = (valor) => {
+
+    const displayDiv = valor=="val_mostrar" ? 'block' : 'none';
+
+    document.getElementById("unDiv").style.display = displayDiv;
+
+   // if(valor=="val_mostrar"){
+   //     document.getElementById("unDiv").style.display = 'block';
+   // }
+   // else{
+
+    //   document.getElementById("unDiv").style.display = 'none';
+    //}
+
+}
+
+
+
