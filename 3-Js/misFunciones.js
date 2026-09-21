@@ -1,9 +1,8 @@
 /**
- * Descripción
- * @method Nombre de la función
- * @param Parámetro A
- * @param Parámetro B
- * @return Valor que retorna
+ * Conversion de unidades de metros, pies, yardas y pulgadas
+ * @method convertirUnidades de la función
+ * @param {string} id - id del elemento
+ * @param {number} valor -valor ingresado
  */
 
 
