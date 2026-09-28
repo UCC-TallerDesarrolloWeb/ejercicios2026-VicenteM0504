@@ -13,7 +13,7 @@
     </header>
     <nav class="item2">
         <a href="productos.html">Catalogo de productos</a>
-        <a href="">Carritos de compras</a>
+        <a href="carrito.html">Carritos de compras</a>
     </nav>
     <aside class="item3">
         <form name="filter" id="filter">
@@ -21,7 +21,7 @@
 
             <legend>Buscador</legend>
             <label for="search">Buscar</label>
-            <input type="text" name="search" id="search" placeholder="Buscar..">
+            <input type="text" name="search" id="search" placeholder="Buscar.." onchange="filtrarProductos()">
 
         </fieldset>
         <fieldset>
@@ -32,21 +32,31 @@
             </p>
             <p>
                 <label for="price-max">Maximo</label>
-                <input type="number" name="price-max" id="price-max" min="0">
+                <input type="number" name="price-max" id="price-max" min="0" onchange="filtrarProductos()">
             </p>
         </fieldset>
         <fieldset>
+            <legend>Marca</legend>
+                <select id="marca" onchange="filtrarProducto()">
+                    <option value="Todas">Todas</option>
+                    <option value="Gran Marc">Gran Marc</option>
+                    <option value="Daedo">Daedo</option>
+
+
+                </select>
+            
+        <fieldset>
             <legend>Tipo de productos</legend>
             <p>
-                <input type="checkbox" name="tipo" id="protectores" value="protectores">
+                <input type="checkbox" name="tipo" id="protectores" value="protectores" onchange="filtrarProductos()">
                 <label for="protectores">Protectores</label>
             </p>
             <p>
-                <input type="checkbox" name="tipo" id="entrenamiento" value="entrenamiento">
+                <input type="checkbox" name="tipo" id="entrenamiento" value="entrenamiento" onchange="filtrarProductos()">
                 <label for="entrenamiento">Entrenamiento</label>
             </p>
             <p>
-                <input type="checkbox" name="tipo" id="dobok" value="dobok">
+                <input type="checkbox" name="tipo" id="dobok" value="dobok"onchange="filtrarProductos()">
                 <label for="dobok">Dobok</label>
             </p>
         </fieldset>

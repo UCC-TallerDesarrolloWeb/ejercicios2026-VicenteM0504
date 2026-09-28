@@ -90,16 +90,152 @@ cerrarModal = () => {
  * @method mostrarCatalogo
  */
 
-mostrarCatalogo = () => {
+mostrarCatalogo = (newList = productos) => {
   let contenido = "";
 
-  productos.forEach((productos, id) => {
+  newList.forEach((productos, id) => {
     contenido += `<div>
     <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/${productos.imagen}"alt="${productos.nombre}">
             <h3>${productos.nombre}</h3>
+            <p>${producto.precio}</p>
             <button type="button" onclick="mostrarModal(${id})">Ver detalle de producto</button>
+            <button type="button" onclick="agregarAlcarrito(${id})">Agregar al carrito</button>
     </div>`
   })
 
   document.getElementById("catalogo").innerHTML = contenido;
+}
+
+/**
+ * 
+ * @method agregarAlcarrito
+ * @param {number}
+ */
+
+agregarAlcarrito = (num) => {
+  let carritoList = localStorage.getItem("carrito");
+  console.log(carritoList);
+
+  if (carritoList==null) {
+    carritoList=[];
+  }else{
+    carritoList = JSON.parse(carritoList);
+    
+  }
+  carritoList.push(num);
+  console.log(carritoList);
+  localStorage.setItem("carrito", JSON.stringify(carritoList));
+}
+
+/**
+ * 
+ * @method mostrarCarrito
+ */
+
+mostrarCarrito = () => {
+  let carritoList = localStorage.getItem("carrito");
+  console.log(carritoList);
+  let contenido = "";
+
+  if (carritoList==null) {
+    contenido = '<div>Su carrito de compras esta vacio</div>'
+  }
+  else{
+  carritoList = JSON.parse(carritoList);
+
+
+  console.log(carritoList);
+
+  carritoList.forEach((num, id) => {
+    contenido += `<div>
+                  <h3>${productos[num].nombre}</h3>
+                  <p>${productos[num].precio}</p>
+                  <button type="button" onclick="eliminarProducto(${id})">Eliminar producto</button>
+                  </div>`;
+  });
+   contenido += '<button type="button" onclick="vaciarCarrito()"> Vaciar carrito </button>'
+
+  }
+
+  
+
+  document.getElementById("carrito").innerHTML = contenido;
+}
+
+/**
+ * 
+ * @method vaciarCarrito
+ */
+
+let vaciarCarrito = () => {
+  localStorage.removeItem("carrito");
+  window.location.reload();
+}
+
+/**
+ * 
+ * @param {number} id
+ */
+
+let eliminarProducto = (id) => {
+  let carritoList = localStorage.getItem("carrito");
+  carritoList = JSON.parse(carritoList);
+  
+  carritoList.splice(id, 1);
+
+  if(carritoList.length > 0){
+  localStorage.setItem("carrito", JSON.stringify(carritoList));
+  }else{
+    localStorage.removeItem("carrito")
+  }
+
+  window.location.reload();
+}
+
+/**
+ * Filtra el catalogo
+ * 
+ */
+
+
+
+let filtrarProductos = () => {
+  let searchWord = document.getElementById("search").value;
+  let min = document.getElementById("price-min").value;
+  let max = document.getElementById("price-ma").value;
+  let marca = document.getElementById("marca").value;
+  let prot = document.getElementById("protectores").checked;
+  let entr = document.getElementById("entrenamiento").checked;
+  let dob = document.getElementById("dobok").checked;
+  let newLista = productos;
+
+  if (searchWord) {
+    newLista = newLista.filter((prod) => prod.nombre.toLowerCase().includes(searchWord.toLowerCase()));
+  }
+
+  if (min) {
+    newLista = newLista.filter((prod) => prod.precio >= min) 
+  }
+
+  if (max) {
+    newLista = newLista.filter((prod) => prod.precio <= max) 
+  }
+
+  if (marca != "Todas") {
+    newLista = newLista.filter((prod) => prod.marca == marca)
+  }
+
+  let category = [];
+  prot ? category.push("Protectores") : "";  
+  entr ? category.push("Entrenamiento") : "";  
+  dob ? category.push("Debok") : "";  
+
+  if(category.length > 0){
+    newLista = newLista.filter((prod) => category.includes(prod.categoria))
+  }
+
+  mostrarCatalogo(newLista);
+
+
+
 }
