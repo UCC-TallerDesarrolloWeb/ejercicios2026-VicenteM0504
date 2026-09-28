@@ -97,13 +97,14 @@ mostrarCatalogo = (newList = productos) => {
     contenido += `<div>
     <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/${productos.imagen}"alt="${productos.nombre}">
             <h3>${productos.nombre}</h3>
-            <p>${producto.precio}</p>
+            <p>${formatPrice(productos.precio)}</p>
             <button type="button" onclick="mostrarModal(${id})">Ver detalle de producto</button>
             <button type="button" onclick="agregarAlcarrito(${id})">Agregar al carrito</button>
     </div>`
   })
 
   document.getElementById("catalogo").innerHTML = contenido;
+
 }
 
 /**
@@ -125,6 +126,7 @@ agregarAlcarrito = (num) => {
   carritoList.push(num);
   console.log(carritoList);
   localStorage.setItem("carrito", JSON.stringify(carritoList));
+  contarProductos();
 }
 
 /**
@@ -142,18 +144,36 @@ mostrarCarrito = () => {
   }
   else{
   carritoList = JSON.parse(carritoList);
+    let total = 0;
+    const listProd = [];
+    const listCant = [];
 
+    carritoList.forEach((num) => {
+
+      if (!listProd.includes(num)) {
+        listProd.push(num);
+        listCant.push(1);
+      }else{
+        const inx = listProd.indexOf(num);
+        listCant[inx] +=1;
+      }
+      
+    })
 
   console.log(carritoList);
 
-  carritoList.forEach((num, id) => {
+  listProd.forEach((num, id) => {
     contenido += `<div>
                   <h3>${productos[num].nombre}</h3>
-                  <p>${productos[num].precio}</p>
+                  <p>${formatPrice(productos[num].precio)}</p>
+                  <p>Cantidad: ${listCant[id]}</p>
                   <button type="button" onclick="eliminarProducto(${id})">Eliminar producto</button>
                   </div>`;
+      total += productos[num].precio * listCant[id];
   });
-   contenido += '<button type="button" onclick="vaciarCarrito()"> Vaciar carrito </button>'
+
+    contenido += 'Total: ${formatPrice(total)}';
+    contenido += '<button type="button" onclick="vaciarCarrito()"> Vaciar carrito </button>'
 
   }
 
@@ -238,4 +258,66 @@ let filtrarProductos = () => {
 
 
 
+}
+
+/**
+ * Filtra el catalogo
+ * 
+ * @param {number} formatPrice
+ * @returns {number}
+ */
+
+let formatPrice = (price) => {
+  return new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    corrency: "ARS"
+  }).format(price);
+}
+
+
+let contarProductos = () => {
+  let carritoList = localStorage.getItem("carrito");
+  carritoList = JSON.parse(carritoList);
+
+  if (carritoList.length>0) {
+    document.getElementById("cant-prod").innerText = carritoList.length;
+  }
+}
+
+
+let ordenarCatalogo = () => {
+  const opt = document.getElementById("order").value;
+
+  let newProductos;
+
+  switch(opt){
+    case "menor":
+
+          newProductos = productos.sort((a,b) => a.precio - b.precio);
+
+    case "mayor":
+          newProductos = productos.sort((a,b) => b.precio - a.precio);
+
+    case "a-z":
+        newProductos = puctos.sort((a,b) => {
+          if (a.nombre.toLowerCase() <b.nombre.toLowerCase()) {
+            return -1;
+          }
+          else{
+            return 1;
+          }
+        })
+
+    case "z-a": 
+    newProductos = puctos.sort((a,b) => {
+          if (a.nombre.toLowerCase() >b.nombre.toLowerCase()) {
+            return -1;
+          }
+          else{
+            return 1;
+          }
+        })
+    break;
+  }
+  mostrarCatalogo(newProductos);
 }

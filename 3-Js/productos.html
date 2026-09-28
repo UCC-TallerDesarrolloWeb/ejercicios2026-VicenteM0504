@@ -14,6 +14,7 @@
     <nav class="item2">
         <a href="productos.html">Catalogo de productos</a>
         <a href="carrito.html">Carritos de compras</a>
+        <div id="cant-prod">0</div>
     </nav>
     <aside class="item3">
         <form name="filter" id="filter">
@@ -28,7 +29,7 @@
             <legend>Precios</legend>
             <p>
                 <label for="price-min">Minimo</label>
-                <input type="number" name="price-min" id="price-min" min="0">
+                <input type="number" name="price-min" id="price-min" min="0" onchange="filtrarProductos()">
             </p>
             <p>
                 <label for="price-max">Maximo</label>
@@ -59,6 +60,17 @@
                 <input type="checkbox" name="tipo" id="dobok" value="dobok"onchange="filtrarProductos()">
                 <label for="dobok">Dobok</label>
             </p>
+        </fieldset>
+        <fieldset>
+            <legend>Ordenar catalogo</legend>
+            <select id="order" onchange="ordenarCatalogo()">
+                <option value="mayor">por precio - de Mayor a Menor</option>
+                <option value="menor">por precio - de Menor a Mayor</option>
+                <option value="a-z">por nombre - de A -Z</option>
+                <option value="z-a">por nombre - de Z -A</option>
+
+
+            </select>
         </fieldset>
         </form>
     </aside>
