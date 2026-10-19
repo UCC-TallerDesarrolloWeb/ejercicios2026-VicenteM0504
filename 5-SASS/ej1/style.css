@@ -7,4 +7,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.caja{
+    @include caja_personalizada();
+}
+
+.caja-secundaria{
+    @include caja_personalizada($fondo: orange, $color: red );
+}
 /*# sourceMappingURL=style.css.map */
