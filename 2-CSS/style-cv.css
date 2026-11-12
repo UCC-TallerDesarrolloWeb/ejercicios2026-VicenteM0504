@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Caacupe+One&display=swap');
+
+.main-style {
+    text-align: center;
+    background: linear-gradient(to right, red, rgb(52, 15, 15));
+}
+
+h3 {
+    font-family: "Caacupe One", sans-serif;
+    text-shadow: 10px 8px rgb(44, 29, 29);
+}
+
+div {
+    border: 1px solid rgb(128, 0, 255);
+    margin: 15px;
+    padding: 10px 25px 12px;
+    background-color: rgba(255, 179, 0, 0.31);
+    border-radius: 15px 30px 50px 100px;
+    box-shadow: 10px 8px rgb(209, 96, 96);
+}
+
+#user {
+    width: 10%;
+    float: left;
+    border-radius: 50%;
+}

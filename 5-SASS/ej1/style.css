@@ -1,0 +1,17 @@
+body {
+  background: #ccc;
+}
+
+.caja h2 {
+  color: green;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.caja{
+    @include caja_personalizada();
+}
+
+.caja-secundaria{
+    @include caja_personalizada($fondo: orange, $color: red );
+}
+/*# sourceMappingURL=style.css.map */
