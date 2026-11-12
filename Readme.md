@@ -47,28 +47,28 @@
 
 ## Unidad 3: JavaScript y ES6+
 
--  [ ] Hola Mundo!
--  [ ] Conversor de Unidades
--  [ ] Documentación
--  [ ] Grados a Radianes
--  [ ] Refactorización
--  [ ] Mostrar/Ocultar div
--  [ ] Mostrar/Ocultar Dialog
--  [ ] Operaciones Matemáticas
--  [ ] Conversor de Unidades II
--  [ ] Operaciones Matemáticas II
--  [ ] Renderizado Dinámico
--  [ ] Renderizado Dinámico del Dialog
--  [ ] Carrito de Compras con localstorage
--  [ ] Vaciar Carrito y Eliminar Producto
--  [ ] Filter
--  [ ] Formatear Precio
--  [ ] Total y Cantidad de Productos
--  [ ] Ordenar el catálogo
+-  [x] Hola Mundo!
+-  [x] Conversor de Unidades
+-  [x] Documentación
+-  [x] Grados a Radianes
+-  [x] Refactorización
+-  [x] Mostrar/Ocultar div
+-  [x] Mostrar/Ocultar Dialog
+-  [x] Operaciones Matemáticas
+-  [x] Conversor de Unidades II
+-  [x] Operaciones Matemáticas II
+-  [x] Renderizado Dinámico
+-  [x] Renderizado Dinámico del Dialog
+-  [x] Carrito de Compras con localstorage
+-  [x] Vaciar Carrito y Eliminar Producto
+-  [x] Filter
+-  [x] Formatear Precio
+-  [x] Total y Cantidad de Productos
+-  [x] Ordenar el catálogo
 
 ## Unidad 4: Funcionamiento del Navegador y Herramientas de Desarrollo
--  [ ] Checkeo de accesiilidad: AXE
--  [ ] Checkeo de Lighthouse: accesibilidad, CEO, performance, buenas prácticas
+-  [x] Checkeo de accesiilidad: AXE
+-  [x] Checkeo de Lighthouse: accesibilidad, CEO, performance, buenas prácticas
 
 ## Unidad 5: Frameworks y Preprocesadores CSS
 
@@ -80,17 +80,17 @@
 -  [ ] Youtube
 
 ### SASS
--  [ ] Sass básico
--  [ ] Diseño de Interiores
+-  [x] Sass básico
+-  [x] Diseño de Interiores
 
 ## Unidad 6: Frameworks de JavaScript: React, Vue y Angular
--  [ ] Instalación de React Usando Vite
--  [ ] Login Básico
--  [ ] Redirección de Rutas
--  [ ] Outlet
--  [ ] Estructura del Proyecto
--  [ ] Imágenes
--  [ ] Children
+-  [x] Instalación de React Usando Vite
+-  [x] Login Básico
+-  [x] Redirección de Rutas
+-  [x] Outlet
+-  [x] Estructura del Proyecto
+-  [x] Imágenes
+-  [x] Children
 
 
 ## Unidad 7: Backend y APIs
