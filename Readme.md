@@ -36,33 +36,33 @@
 -  [x] Pseudo Clases
 -  [x] CV
 -  [x] Backgrounds
--  [ ] Position
+-  [x] Position
 -  [x] 2 Columnas
 -  [x] Grid
 -  [x] grid-areas
 -  [x] Mejora
--  [X] Transitions
+-  [x] Transitions
 -  [x] Viewport
 -  [x] Responsive
 
 ## Unidad 3: JavaScript y ES6+
 
--  [ ] Hola Mundo!
--  [ ] Conversor de Unidades
--  [ ] Documentación
--  [ ] Grados a Radianes
--  [ ] Refactorización
--  [ ] Mostrar/Ocultar div
--  [ ] Mostrar/Ocultar Dialog
+-  [x] Hola Mundo!
+-  [x] Conversor de Unidades
+-  [x] Documentación
+-  [x] Grados a Radianes
+-  [x] Refactorización
+-  [x] Mostrar/Ocultar div
+-  [x] Mostrar/Ocultar Dialog
 -  [ ] Operaciones Matemáticas
--  [ ] Conversor de Unidades II
--  [ ] Operaciones Matemáticas II
--  [ ] Renderizado Dinámico
--  [ ] Renderizado Dinámico del Dialog
--  [ ] Carrito de Compras con localstorage
--  [ ] Vaciar Carrito y Eliminar Producto
--  [ ] Filter
--  [ ] Formatear Precio
+-  [x] Conversor de Unidades II
+-  [x] Operaciones Matemáticas II
+-  [x] Renderizado Dinámico
+-  [x] Renderizado Dinámico del Dialog
+-  [x] Carrito de Compras con localstorage
+-  [x] Vaciar Carrito y Eliminar Producto
+-  [x] Filter
+-  [x] Formatear Precio
 -  [ ] Total y Cantidad de Productos
 -  [ ] Ordenar el catálogo
 

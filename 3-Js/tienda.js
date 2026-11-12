@@ -61,3 +61,263 @@ const productos = [
     imagen: "protectores-manos.webp",
   },
 ];
+
+/**
+ * 
+ * @method mostrarModal
+ */
+
+mostrarModal = (num) => {
+  document.getElementById("nombre-producto").innerText = productos[num].nombre;
+    document.getElementById("descripcion-producto").innerText = productos[num].description;
+
+  document.getElementById("modal").style.display = 'block';
+}
+
+
+/**
+ * 
+ * @method cerrarModal
+ * @param {number} num
+ */
+
+cerrarModal = () => {
+  document.getElementById("modal").style.display = 'none';
+}
+
+/**
+ * 
+ * @method mostrarCatalogo
+ */
+
+mostrarCatalogo = (newList = productos) => {
+  let contenido = "";
+
+  newList.forEach((productos, id) => {
+    contenido += `<div>
+    <img src="https://ucc-tallerdesarrolloweb.github.io/filminas/images/ejercicios/${productos.imagen}"alt="${productos.nombre}">
+            <h3>${productos.nombre}</h3>
+            <p>${formatPrice(productos.precio)}</p>
+            <button type="button" onclick="mostrarModal(${id})">Ver detalle de producto</button>
+            <button type="button" onclick="agregarAlcarrito(${id})">Agregar al carrito</button>
+    </div>`
+  })
+
+  document.getElementById("catalogo").innerHTML = contenido;
+
+}
+
+/**
+ * 
+ * @method agregarAlcarrito
+ * @param {number}
+ */
+
+agregarAlcarrito = (num) => {
+  let carritoList = localStorage.getItem("carrito");
+  console.log(carritoList);
+
+  if (carritoList==null) {
+    carritoList=[];
+  }else{
+    carritoList = JSON.parse(carritoList);
+    
+  }
+  carritoList.push(num);
+  console.log(carritoList);
+  localStorage.setItem("carrito", JSON.stringify(carritoList));
+  contarProductos();
+}
+
+/**
+ * 
+ * @method mostrarCarrito
+ */
+
+mostrarCarrito = () => {
+  let carritoList = localStorage.getItem("carrito");
+  console.log(carritoList);
+  let contenido = "";
+
+  if (carritoList==null) {
+    contenido = '<div>Su carrito de compras esta vacio</div>'
+  }
+  else{
+  carritoList = JSON.parse(carritoList);
+    let total = 0;
+    const listProd = [];
+    const listCant = [];
+
+    carritoList.forEach((num) => {
+
+      if (!listProd.includes(num)) {
+        listProd.push(num);
+        listCant.push(1);
+      }else{
+        const inx = listProd.indexOf(num);
+        listCant[inx] +=1;
+      }
+      
+    })
+
+  console.log(carritoList);
+
+  listProd.forEach((num, id) => {
+    contenido += `<div>
+                  <h3>${productos[num].nombre}</h3>
+                  <p>${formatPrice(productos[num].precio)}</p>
+                  <p>Cantidad: ${listCant[id]}</p>
+                  <button type="button" onclick="eliminarProducto(${id})">Eliminar producto</button>
+                  </div>`;
+      total += productos[num].precio * listCant[id];
+  });
+
+    contenido += 'Total: ${formatPrice(total)}';
+    contenido += '<button type="button" onclick="vaciarCarrito()"> Vaciar carrito </button>'
+
+  }
+
+  
+
+  document.getElementById("carrito").innerHTML = contenido;
+}
+
+/**
+ * 
+ * @method vaciarCarrito
+ */
+
+let vaciarCarrito = () => {
+  localStorage.removeItem("carrito");
+  window.location.reload();
+}
+
+/**
+ * 
+ * @param {number} id
+ */
+
+let eliminarProducto = (id) => {
+  let carritoList = localStorage.getItem("carrito");
+  carritoList = JSON.parse(carritoList);
+  
+  carritoList.splice(id, 1);
+
+  if(carritoList.length > 0){
+  localStorage.setItem("carrito", JSON.stringify(carritoList));
+  }else{
+    localStorage.removeItem("carrito")
+  }
+
+  window.location.reload();
+}
+
+/**
+ * Filtra el catalogo
+ * 
+ */
+
+
+
+let filtrarProductos = () => {
+  let searchWord = document.getElementById("search").value;
+  let min = document.getElementById("price-min").value;
+  let max = document.getElementById("price-ma").value;
+  let marca = document.getElementById("marca").value;
+  let prot = document.getElementById("protectores").checked;
+  let entr = document.getElementById("entrenamiento").checked;
+  let dob = document.getElementById("dobok").checked;
+  let newLista = productos;
+
+  if (searchWord) {
+    newLista = newLista.filter((prod) => prod.nombre.toLowerCase().includes(searchWord.toLowerCase()));
+  }
+
+  if (min) {
+    newLista = newLista.filter((prod) => prod.precio >= min) 
+  }
+
+  if (max) {
+    newLista = newLista.filter((prod) => prod.precio <= max) 
+  }
+
+  if (marca != "Todas") {
+    newLista = newLista.filter((prod) => prod.marca == marca)
+  }
+
+  let category = [];
+  prot ? category.push("Protectores") : "";  
+  entr ? category.push("Entrenamiento") : "";  
+  dob ? category.push("Debok") : "";  
+
+  if(category.length > 0){
+    newLista = newLista.filter((prod) => category.includes(prod.categoria))
+  }
+
+  mostrarCatalogo(newLista);
+
+
+
+}
+
+/**
+ * Filtra el catalogo
+ * 
+ * @param {number} formatPrice
+ * @returns {number}
+ */
+
+let formatPrice = (price) => {
+  return new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    corrency: "ARS"
+  }).format(price);
+}
+
+
+let contarProductos = () => {
+  let carritoList = localStorage.getItem("carrito");
+  carritoList = JSON.parse(carritoList);
+
+  if (carritoList.length>0) {
+    document.getElementById("cant-prod").innerText = carritoList.length;
+  }
+}
+
+
+let ordenarCatalogo = () => {
+  const opt = document.getElementById("order").value;
+
+  let newProductos;
+
+  switch(opt){
+    case "menor":
+
+          newProductos = productos.sort((a,b) => a.precio - b.precio);
+
+    case "mayor":
+          newProductos = productos.sort((a,b) => b.precio - a.precio);
+
+    case "a-z":
+        newProductos = puctos.sort((a,b) => {
+          if (a.nombre.toLowerCase() <b.nombre.toLowerCase()) {
+            return -1;
+          }
+          else{
+            return 1;
+          }
+        })
+
+    case "z-a": 
+    newProductos = puctos.sort((a,b) => {
+          if (a.nombre.toLowerCase() >b.nombre.toLowerCase()) {
+            return -1;
+          }
+          else{
+            return 1;
+          }
+        })
+    break;
+  }
+  mostrarCatalogo(newProductos);
+}
