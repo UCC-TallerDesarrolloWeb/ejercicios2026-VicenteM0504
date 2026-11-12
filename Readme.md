@@ -54,7 +54,7 @@
 -  [x] Refactorización
 -  [x] Mostrar/Ocultar div
 -  [x] Mostrar/Ocultar Dialog
--  [ ] Operaciones Matemáticas
+-  [x] Operaciones Matemáticas
 -  [x] Conversor de Unidades II
 -  [x] Operaciones Matemáticas II
 -  [x] Renderizado Dinámico
@@ -63,12 +63,12 @@
 -  [x] Vaciar Carrito y Eliminar Producto
 -  [x] Filter
 -  [x] Formatear Precio
--  [ ] Total y Cantidad de Productos
--  [ ] Ordenar el catálogo
+-  [x] Total y Cantidad de Productos
+-  [x] Ordenar el catálogo
 
 ## Unidad 4: Funcionamiento del Navegador y Herramientas de Desarrollo
--  [ ] Checkeo de accesiilidad: AXE
--  [ ] Checkeo de Lighthouse: accesibilidad, CEO, performance, buenas prácticas
+-  [x] Checkeo de accesiilidad: AXE
+-  [x] Checkeo de Lighthouse: accesibilidad, CEO, performance, buenas prácticas
 
 ## Unidad 5: Frameworks y Preprocesadores CSS
 
@@ -80,17 +80,17 @@
 -  [ ] Youtube
 
 ### SASS
--  [ ] Sass básico
--  [ ] Diseño de Interiores
+-  [x] Sass básico
+-  [x] Diseño de Interiores
 
 ## Unidad 6: Frameworks de JavaScript: React, Vue y Angular
--  [ ] Instalación de React Usando Vite
--  [ ] Login Básico
--  [ ] Redirección de Rutas
--  [ ] Outlet
--  [ ] Estructura del Proyecto
--  [ ] Imágenes
--  [ ] Children
+-  [x] Instalación de React Usando Vite
+-  [x] Login Básico
+-  [x] Redirección de Rutas
+-  [x] Outlet
+-  [x] Estructura del Proyecto
+-  [x] Imágenes
+-  [x] Children
 
 
 ## Unidad 7: Backend y APIs
